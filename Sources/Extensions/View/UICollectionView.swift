@@ -24,18 +24,18 @@ public extension UICollectionView {
     
     func dequeue<T: UICollectionViewCell>(_: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: T.self), for: indexPath) as? T
-            else { fatalError("Could not deque cell with type \(T.self)") }
+            else { fatalError("Could not dequeue cell with type \(T.self)") }
         return cell
     }
     
     func dequeueSupplementaryView<T: UICollectionViewCell>(_: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: T.self), for: indexPath) as? T
-            else { fatalError("Could not deque cell with type \(T.self)") }
+            else { fatalError("Could not dequeue cell with type \(T.self)") }
         return cell
     }
     
     func cell<T: UICollectionViewCell>(at indexPath: IndexPath, type: T.Type) -> T {
-        guard let cell = self.cellForItem(at: indexPath) as? T else { fatalError("Could not deque cell with type \(T.self)") }
+        guard let cell = self.cellForItem(at: indexPath) as? T else { fatalError("Could not dequeue cell with type \(T.self)") }
         return cell
     }
 }

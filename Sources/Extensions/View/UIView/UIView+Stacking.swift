@@ -59,6 +59,32 @@ extension UIView {
         layer.borderColor = color.cgColor
         return self as! T
     }
+    
+    @discardableResult
+    open func withBackgroundColor(_ color: UIColor) -> UIView {
+        self.backgroundColor = color
+        return self
+    }
+    @discardableResult
+    open func withCornerRadius(_ radius: CGFloat) -> UIView {
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = radius
+        return self
+    }
+    
+    @discardableResult
+    open func withFrame(_ frame: CGRect) -> UIView {
+        self.frame = frame
+        return self
+    }
+    @discardableResult
+    func withRoundCorners(rectCorner: UIRectCorner, radius: CGFloat) -> UIView {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: rectCorner, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+        return self
+    }
 }
 
 extension CGSize {
@@ -70,13 +96,5 @@ extension CGSize {
 extension UIEdgeInsets {
     static public func allSides(_ side: CGFloat) -> UIEdgeInsets {
         return .init(top: side, left: side, bottom: side, right: side)
-    }
-}
-
-extension UIImageView {
-    convenience public init(image: UIImage?, contentMode: UIView.ContentMode = .scaleAspectFill) {
-        self.init(image: image)
-        self.contentMode = contentMode
-        self.clipsToBounds = true
     }
 }

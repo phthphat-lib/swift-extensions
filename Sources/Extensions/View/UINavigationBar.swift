@@ -30,21 +30,3 @@ extension UINavigationBar {
         ]
     }
 }
-
-extension UINavigationController:UINavigationControllerDelegate {
-
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        self.delegate = self
-    }
-
-    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if responds(to: #selector(getter: self.interactivePopGestureRecognizer)) {
-            if viewControllers.count > 1 {
-                interactivePopGestureRecognizer?.isEnabled = true
-            } else {
-                interactivePopGestureRecognizer?.isEnabled = false
-            }
-        }
-    }
-}

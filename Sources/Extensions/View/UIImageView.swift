@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
-extension UIImageView{
+extension UIImageView {
+    convenience public init(image: UIImage?, contentMode: UIView.ContentMode = .scaleAspectFill) {
+        self.init(image: image)
+        self.contentMode = contentMode
+        self.clipsToBounds = true
+    }
+    
     func setRoundedWithBorder(borderColor : UIColor = UIColor.lightGray, borderWidth : CGFloat = 1) {
         self.layer.borderWidth = borderWidth
         self.layer.masksToBounds = false
