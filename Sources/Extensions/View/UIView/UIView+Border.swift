@@ -73,7 +73,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func widthBorder(borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear, cornerRadius: CGFloat) -> UIView {
+    func withBorder(borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear, cornerRadius: CGFloat) -> UIView {
         self.layer.masksToBounds        = true
         self.layer.borderWidth          = borderWidth
         self.layer.borderColor          = borderColor.cgColor
