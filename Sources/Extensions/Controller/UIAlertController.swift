@@ -15,7 +15,7 @@ extension UIAlertController {
         return showError(error.localizedDescription)
     }
     
-    static func showError(_ message: String) -> UIAlertController {
+    public static func showError(_ message: String) -> UIAlertController {
         
         alertController = UIAlertController(
             title: "",
@@ -34,14 +34,14 @@ extension UIAlertController {
         return alertController ?? UIAlertController(nibName: "", bundle: nil)
     }
     
-    static func hideErrorAlert() {
+    public static func hideErrorAlert() {
         if let _alertController = alertController {
             _alertController.dismiss(animated: true, completion: nil)
         }
     }
     
     // Show alert on window
-    func showErrorOnWindow() {
+    public func showErrorOnWindow() {
         let window = UIApplication.shared.delegate?.window
         DispatchQueue.main.async {
             

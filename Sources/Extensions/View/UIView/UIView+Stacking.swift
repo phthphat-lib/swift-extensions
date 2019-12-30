@@ -78,11 +78,17 @@ extension UIView {
         return self
     }
     @discardableResult
-    func withRoundCorners(rectCorner: UIRectCorner, radius: CGFloat) -> UIView {
+    open func withRoundCorners(rectCorner: UIRectCorner, radius: CGFloat) -> UIView {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: rectCorner, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         layer.mask = mask
+        return self
+    }
+    
+    @discardableResult
+    open func withSubview(_ view: UIView) -> UIView {
+        self.addSubview(view)
         return self
     }
 }
