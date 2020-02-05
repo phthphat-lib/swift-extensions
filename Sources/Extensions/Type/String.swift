@@ -1,9 +1,6 @@
 //
 //  String+Extension.swift
-//  Superstar Mentor
 //
-//  Created by vinova on 9/24/18.
-//  Copyright © 2018 Vinova. All rights reserved.
 //
 
 import Foundation

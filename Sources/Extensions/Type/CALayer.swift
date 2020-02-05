@@ -1,9 +1,7 @@
 //
-//  CALayer+Extension.swift
-//  Superstar Mentor
+//  CALayer.swift
 //
 //  Created by Kent on 7/23/19.
-//  Copyright © 2019 Vinova. All rights reserved.
 //
 
 import UIKit

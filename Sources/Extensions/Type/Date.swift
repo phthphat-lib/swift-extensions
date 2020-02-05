@@ -1,9 +1,7 @@
 //
 //  Date+Extensions.swift
-//  GoFixCustomer
 //
 //  Created by Edward Nguyen on 6/25/18.
-//  Copyright © 2018 gofix.vinova.sg. All rights reserved.
 //
 
 import Foundation
