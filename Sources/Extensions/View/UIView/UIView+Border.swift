@@ -72,6 +72,7 @@ public extension UIView {
         layer.masksToBounds = true
     }
     
+    //MARK: Declarative programing
     @discardableResult
     func withBorder(borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear, cornerRadius: CGFloat) -> UIView {
         self.layer.masksToBounds        = true

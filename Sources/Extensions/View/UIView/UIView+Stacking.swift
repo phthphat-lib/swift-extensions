@@ -20,7 +20,7 @@ extension UIView {
         stackView.fillSuperviewSafeAreaLayoutGuide()
         return stackView
     }
-    
+    //MARK: Declarative programing
     @discardableResult
     open func vstack(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
         return _stack(.vertical, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
@@ -32,7 +32,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func withSize<T: UIView>(_ size: CGSize) -> T {
+    open func with<T: UIView>(size: CGSize) -> T {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: size.width).isActive = true
         heightAnchor.constraint(equalToConstant: size.height).isActive = true
@@ -40,14 +40,14 @@ extension UIView {
     }
     
     @discardableResult
-    open func withHeight(_ height: CGFloat) -> UIView {
+    open func with(height: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true
         return self
     }
     
     @discardableResult
-    open func withWidth(_ width: CGFloat) -> UIView {
+    open func with(width: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: width).isActive = true
         return self
@@ -61,19 +61,19 @@ extension UIView {
     }
     
     @discardableResult
-    open func withBackgroundColor(_ color: UIColor) -> UIView {
+    open func with(backgroundColor: UIColor) -> UIView {
         self.backgroundColor = color
         return self
     }
     @discardableResult
-    open func withCornerRadius(_ radius: CGFloat) -> UIView {
+    open func with(cornerRadius: CGFloat) -> UIView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = radius
         return self
     }
     
     @discardableResult
-    open func withFrame(_ frame: CGRect) -> UIView {
+    open func with(frame: CGRect) -> UIView {
         self.frame = frame
         return self
     }
@@ -87,7 +87,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func withSubview(_ view: UIView) -> UIView {
+    open func with(subView: UIView) -> UIView {
         self.addSubview(view)
         return self
     }

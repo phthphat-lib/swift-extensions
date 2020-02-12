@@ -40,6 +40,7 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
     }
     
+    //MARK: Declarative programing
     @discardableResult
     open func anchor(_ anchors: Anchor...) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
