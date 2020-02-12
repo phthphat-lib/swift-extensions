@@ -14,7 +14,7 @@ extension UITextField {
     }
     
     @discardableResult
-    func onTextChange(_ target: Any, action: Selector) {
+    open func onTextChange(_ target: Any, action: Selector) {
         self.addTarget(target, action: action, for: .valueChanged)
     }
 }
