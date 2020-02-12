@@ -62,13 +62,13 @@ extension UIView {
     
     @discardableResult
     open func with(backgroundColor: UIColor) -> UIView {
-        self.backgroundColor = color
+        self.backgroundColor = backgroundColor
         return self
     }
     @discardableResult
     open func with(cornerRadius: CGFloat) -> UIView {
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = radius
+        self.layer.cornerRadius = cornerRadius
         return self
     }
     
@@ -88,7 +88,7 @@ extension UIView {
     
     @discardableResult
     open func with(subView: UIView) -> UIView {
-        self.addSubview(view)
+        self.addSubview(subView)
         return self
     }
 }

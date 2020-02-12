@@ -38,6 +38,7 @@ extension UIButton {
     
     @discardableResult
     func with(_ target: Any,_ selector: Selector) -> UIButton {
-        self.addTarget(target, action: Selector, for: .touchUpInside)
+        self.addTarget(target, action: selector, for: .touchUpInside)
+        return self
     }
 }
