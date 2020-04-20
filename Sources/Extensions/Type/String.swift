@@ -274,10 +274,9 @@ public extension String {
 //        return emailTest.evaluate(with: self)
 //    }
 //
-    func isVietNamese() -> Bool {
+    func hasVNChar() -> Bool {
         let listVietNamese = "ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ"
-        let listResult =  self.filter {listVietNamese.contains($0)}
-        return listResult.count > 0 ? false : true
+        return self.reduce(false) { $0 || listVietNamese.contains($1) }
     }
     
     func hasSpecialCharacters() -> Bool {
@@ -292,30 +291,6 @@ public extension String {
         }
         
         return false
-    }
-    
-//    func isValidPhone() -> Bool {
-//        let emailRegEx = "^(1\\-)?[0][0-9]{2,3}\\-?[0-9]{3,4}\\-?[0-9]{4,6}$"
-//        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-//
-//        let emailRegEx1 = "^(1\\-)?[+][0-9]{2,3}\\-?[0-9]{2,3}\\-?[0-9]{3,4}\\-?[0-9]{4,6}$"
-//        let emailTest1 = NSPredicate(format: "SELF MATCHES %@", emailRegEx1)
-//
-//        return emailTest.evaluate(with: self) || emailTest1.evaluate(with: self)
-//    }
-    
-    func isValidPhone2() -> Bool {
-        let phoneRegEx = "^[+]?[0-9]{9,13}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegEx)
-        return phoneTest.evaluate(with: self)
-    }
-    
-    func isValidLatterAndNumber() -> Bool {
-        let tatterAndNumberRegEx = "^[a-zA-Z0-9]+([_ .]?[a-zA-Z0-9])*$"
-        //"^[a-zA-Z0-9]*$"
-        let ltatterAndNumberTest = NSPredicate(format: "SELF MATCHES %@", tatterAndNumberRegEx)
-        
-        return ltatterAndNumberTest.evaluate(with: self)
     }
     
     var html2Attributed: NSAttributedString? {
@@ -373,12 +348,12 @@ public extension String {
 }
 
 public extension String {
-    func capitalizingFirstLetter() -> String {
+    func capitalizedFirstLetter() -> String {
         return prefix(1).uppercased() + dropFirst()
     }
     
     mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
+        self = self.capitalizedFirstLetter()
     }
 }
 
@@ -417,25 +392,9 @@ public extension String {
 public extension String {
     func toDictionary() -> [String: Any]? {
         if let data = self.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
+            return try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         }
         return nil
-    }
-    
-    func getSub(count: Int) -> String {
-        if self.count > count {
-            let start = String.Index(utf16Offset: 0, in: self)
-            let end = String.Index(utf16Offset: count, in: self)
-            let substring = String(self[start..<end])
-            
-            return "\(substring)..."
-        }
-        return self
-        
     }
 }
 

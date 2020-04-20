@@ -108,84 +108,59 @@ public extension Date {
     /**
      *  Determine if date is in a weekend
      */
-    var isWeekend: Bool {
-        if weekday == 7 || weekday == 1 {
-            return true
-        }
-        return false
-    }
+    var isWeekend: Bool { return (weekday == 7 || weekday == 1) }
     
     // MARK: - Components
     
     /**
      *  Convenience getter for the date's `era` component
      */
-    var era: Int {
-        return component(.era)
-    }
+    var era: Int { return component(.era) }
     
     /**
      *  Convenience getter for the date's `year` component
      */
-    var year: Int {
-        return component(.year)
-    }
+    var year: Int { return component(.year) }
     
     /**
      *  Convenience getter for the date's `month` component
      */
-    var month: Int {
-        return component(.month)
-    }
+    var month: Int { return component(.month) }
     
     /**
      *  Convenience getter for the date's `week` component
      */
-    var week: Int {
-        return component(.weekday)
-    }
+    var week: Int { return component(.weekday) }
     
     /**
      *  Convenience getter for the date's `day` component
      */
-    var day: Int {
-        return component(.day)
-    }
+    var day: Int { return component(.day) }
     
     /**
      *  Convenience getter for the date's `hour` component
      */
-    var hour: Int {
-        return component(.hour)
-    }
+    var hour: Int { return component(.hour) }
     
     /**
      *  Convenience getter for the date's `minute` component
      */
-    var minute: Int {
-        return component(.minute)
-    }
+    var minute: Int { return component(.minute) }
     
     /**
      *  Convenience getter for the date's `second` component
      */
-    var second: Int {
-        return component(.second)
-    }
+    var second: Int { return component(.second) }
     
     /**
      *  Convenience getter for the date's `weekday` component
      */
-    var weekday: Int {
-        return component(.weekday)
-    }
+    var weekday: Int { return component(.weekday) }
     
     /**
      *  Convenience getter for the date's `weekdayOrdinal` component
      */
-    var weekdayOrdinal: Int {
-        return component(.weekdayOrdinal)
-    }
+    var weekdayOrdinal: Int { return component(.weekdayOrdinal) }
     
     /**
      *  Convenience getter for the date's `quarter` component

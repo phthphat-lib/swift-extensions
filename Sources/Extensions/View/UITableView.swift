@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-
-//extension UITableView {
-//    public init(style: ) {
-//        
-//    }
-//}
-
 public extension UITableView {
     func register<T: UITableViewCell>(_: T.Type, reuseIdentifier: String? = nil) {
         self.register(T.self, forCellReuseIdentifier: reuseIdentifier ?? String(describing: T.self))

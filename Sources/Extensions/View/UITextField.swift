@@ -12,9 +12,4 @@ extension UITextField {
         self.init()
         self.placeholder = placeholder
     }
-    
-    @discardableResult
-    open func onTextChange(_ target: Any, action: Selector) {
-        self.addTarget(target, action: action, for: .valueChanged)
-    }
 }
